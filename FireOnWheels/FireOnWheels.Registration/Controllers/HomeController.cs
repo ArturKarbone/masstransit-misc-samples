@@ -11,7 +11,20 @@ namespace FireOnWheels.Registration.Controllers
     {
         public IActionResult RegisterOrder()
         {
-            return View(new OrderViewModel() { PickupName = "Test" });
+            var random = Guid.NewGuid().ToString().Substring(0, 4);
+
+            return View(new OrderViewModel()
+            {
+                PickupName = $"Pickup Name {random}",
+                PickupAddress = $"Pickup Address {random}",
+                PickupCity = $"Picup City {random}",
+                DeliverName = $"Delivery Name {random}",
+                DeliverAddress = $"Delivery Address {random}",
+                DeliverCity = $"Delivery City {random}",
+                Fragile = true,
+                Oversized = false,
+                Weight = 100
+            });
         }
 
         [HttpPost]
