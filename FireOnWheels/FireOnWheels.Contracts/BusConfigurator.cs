@@ -7,8 +7,8 @@ namespace FireOnWheels.Messaging
     public static class BusConfigurator
     {
         public static IBusControl ConfigureBus(
-            Action<IRabbitMqBusFactoryConfigurator, IRabbitMqHost> 
-                registrationAction = null)
+            Action<IRabbitMqBusFactoryConfigurator, IRabbitMqHost>
+            registrationAction = null)
         {
             return Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
@@ -18,6 +18,7 @@ namespace FireOnWheels.Messaging
                     hst.Password(RabbitMqConstants.Password);
                 });
 
+                //todo reflect this and write a blog
                 registrationAction?.Invoke(cfg, host);
             });
         }

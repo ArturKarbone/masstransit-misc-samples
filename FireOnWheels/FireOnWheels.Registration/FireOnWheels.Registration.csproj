@@ -27,7 +27,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FireOnWheelsContracts\FireOnWheels.Contracts.csproj" />
+    <ProjectReference Include="..\FireOnWheels.Contracts\FireOnWheels.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="appsettings.json">
