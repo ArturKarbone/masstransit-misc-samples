@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FireOnWheels.Notification</RootNamespace>
     <AssemblyName>FireOnWheels.Notification</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,12 +63,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FireOnWheels.MessageContracts\FireOnWheels.Messaging.csproj">
-      <Project>{ee8d1f0a-c6f6-41bd-a191-e0d2d661a2db}</Project>
-      <Name>FireOnWheels.Messaging</Name>
+    <ProjectReference Include="..\FireOnWheels.Contracts\FireOnWheels.Contracts.csproj">
+      <Project>{0CE887EF-E2BF-42F0-9AFD-5959A8357135}</Project>
+      <Name>FireOnWheels.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

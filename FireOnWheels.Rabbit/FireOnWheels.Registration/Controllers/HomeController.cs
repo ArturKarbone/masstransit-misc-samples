@@ -1,15 +1,19 @@
-﻿using Microsoft.AspNet.Mvc;
-using FireOnWheels.Registration.ViewModels;
+﻿using System;
+using System.Threading.Tasks;
+using FireOnWheels.Messaging;
 using FireOnWheels.Registration.Messages;
+using FireOnWheels.Registration.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using MassTransit;
 
 namespace FireOnWheels.Registration.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult RegisterOrder()
         {
-            return View();
+            return View(new OrderViewModel());
         }
 
         [HttpPost]
