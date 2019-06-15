@@ -1,6 +1,6 @@
 ﻿namespace FireOnWheels.Messaging
 {
-    public interface IRegisterOrderCommand
+    public interface IRegisterOrder
     {
         string PickupName { get; }
         string PickupAddress { get; }

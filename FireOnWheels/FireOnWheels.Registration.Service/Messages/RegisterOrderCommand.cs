@@ -7,7 +7,7 @@ using FireOnWheels.Messaging;
 
 namespace FireOnWheels.Registration.Service.Messages
 {
-    public class RegisterOrderCommand: IRegisterOrderCommand
+    public class RegisterOrderCommand: IRegisterOrder
     {
         public string PickupName { get; set; }
         public string PickupAddress { get; set; }

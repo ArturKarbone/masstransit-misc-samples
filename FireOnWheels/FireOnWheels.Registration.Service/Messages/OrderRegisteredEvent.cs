@@ -2,11 +2,11 @@
 
 namespace FireOnWheels.Registration.Service.Messages
 {
-    public class OrderRegisteredEvent: IOrderRegisteredEvent
+    public class OrderRegisteredEvent: IOrderRegistered
     {
-        private IRegisterOrderCommand command;
+        private IRegisterOrder command;
         private int orderId;
-        public OrderRegisteredEvent(IRegisterOrderCommand command, int orderId)
+        public OrderRegisteredEvent(IRegisterOrder command, int orderId)
         {
             this.command = command;
             this.orderId = orderId;

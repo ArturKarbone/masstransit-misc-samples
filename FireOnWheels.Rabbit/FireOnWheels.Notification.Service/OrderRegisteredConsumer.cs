@@ -6,10 +6,10 @@ namespace FireOnWheels.Notification
 {
     public class OrderRegisteredConsumer
     {
-        public void Consume(IOrderRegisteredEvent registeredEvent)
+        public void Consume(IOrderRegistered registered)
         {
             //Send notification to user
-            Console.WriteLine($"Customer notification sent: Order id {registeredEvent.OrderId} registered");
+            Console.WriteLine($"Customer notification sent: Order id {registered.OrderId} registered");
         }
     }
 }

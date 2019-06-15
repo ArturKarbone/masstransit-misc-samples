@@ -6,9 +6,9 @@ using MassTransit;
 
 namespace FireOnWheels.Registration.Service
 {
-    public class RegisterOrderCommandConsumer: IConsumer<IRegisterOrderCommand>
+    public class RegisterOrderCommandConsumer: IConsumer<IRegisterOrder>
     {
-        public async Task Consume(ConsumeContext<IRegisterOrderCommand> context)
+        public async Task Consume(ConsumeContext<IRegisterOrder> context)
         {
             var command = context.Message;
 
@@ -20,7 +20,7 @@ namespace FireOnWheels.Registration.Service
             //notify subscribers that a order is registered
             var orderRegisteredEvent = new OrderRegisteredEvent(command, id);
             //publish event
-            await context.Publish<IOrderRegisteredEvent>(orderRegisteredEvent);
+            await context.Publish<IOrderRegistered>(orderRegisteredEvent);
         }
     }
 }

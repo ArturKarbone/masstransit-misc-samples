@@ -37,7 +37,7 @@ namespace FireOnWheels.Registration.Controllers
                 $"{RabbitMqConstants.RegisterOrderServiceQueue}");
             var endPoint = await bus.GetSendEndpoint(sendToUri);
 
-            await endPoint.Send<IRegisterOrderCommand>(new
+            await endPoint.Send<IRegisterOrder>(new
             {
                 PickupName = model.PickupName,
                 PickupAddress = model.PickupAddress,

@@ -3,10 +3,10 @@ using FireOnWheels.Registration.ViewModels;
 
 namespace FireOnWheels.Registration.Messages
 {
-    public class RegisterOrderCommand: IRegisterOrderCommand
+    public class RegisterOrder: IRegisterOrder
     {
         private OrderViewModel viewModel;
-        public RegisterOrderCommand(OrderViewModel viewModel)
+        public RegisterOrder(OrderViewModel viewModel)
         {
             this.viewModel = viewModel;
         }

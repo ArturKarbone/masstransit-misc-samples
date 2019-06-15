@@ -28,13 +28,13 @@ namespace FireOnWheels.Registration.Service
 
             var message = Encoding.UTF8.GetString(body);
             var commandObj = 
-                JsonConvert.DeserializeObject<RegisterOrderCommand>(
+                JsonConvert.DeserializeObject<RegisterOrder>(
                     message);
             Consume(commandObj);
             rabbitMqManager.SendAck(deliveryTag);
         }
 
-        private void Consume(IRegisterOrderCommand command)
+        private void Consume(IRegisterOrder command)
         {
             //Store order registration and get Id
             var id = 12;
@@ -43,7 +43,7 @@ namespace FireOnWheels.Registration.Service
             Console.WriteLine("Publishing order registered event");
 
             //notify subscribers that a order is registered
-            var orderRegisteredEvent = new OrderRegisteredEvent(command, id);
+            var orderRegisteredEvent = new OrderRegistered(command, id);
             //publish event
             rabbitMqManager.SendOrderRegisteredEvent(orderRegisteredEvent);
         }

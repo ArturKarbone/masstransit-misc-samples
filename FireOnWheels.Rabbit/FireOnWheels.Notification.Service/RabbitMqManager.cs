@@ -41,7 +41,7 @@ namespace FireOnWheels.Notification
                 var message = Encoding.UTF8.GetString(eventArgs.Body);
                 var orderConsumer = new OrderRegisteredConsumer();
                 var commandObj = 
-                JsonConvert.DeserializeObject<OrderRegisteredEvent>(message);
+                JsonConvert.DeserializeObject<OrderRegistered>(message);
                 orderConsumer.Consume(commandObj);
                 channel.BasicAck(deliveryTag: eventArgs.DeliveryTag, 
                     multiple: false);

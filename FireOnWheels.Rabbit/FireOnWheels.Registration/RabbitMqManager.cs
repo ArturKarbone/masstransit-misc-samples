@@ -17,7 +17,7 @@ namespace FireOnWheels.Registration
             channel = connection.CreateModel();
             connection.AutoClose = true;
         }
-        public void SendRegisterOrderCommand(IRegisterOrderCommand command)
+        public void SendRegisterOrderCommand(IRegisterOrder command)
         {
             channel.ExchangeDeclare(
                 exchange: RabbitMqConstants.RegisterOrderExchange,

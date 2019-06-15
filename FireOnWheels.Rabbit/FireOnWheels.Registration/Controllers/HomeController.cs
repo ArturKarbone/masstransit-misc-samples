@@ -19,7 +19,7 @@ namespace FireOnWheels.Registration.Controllers
         [HttpPost]
         public IActionResult RegisterOrder(OrderViewModel model)
         {
-            var registerOrderCommand = new RegisterOrderCommand(model);
+            var registerOrderCommand = new RegisterOrder(model);
 
             //Send RegisterOrderCommand
             using (var rabbitMqManager = new RabbitMqManager())

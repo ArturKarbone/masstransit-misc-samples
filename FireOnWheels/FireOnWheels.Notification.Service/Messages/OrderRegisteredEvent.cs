@@ -2,7 +2,7 @@
 
 namespace FireOnWheels.Notification.Service.Messages
 {
-    public class OrderRegisteredEvent : IOrderRegisteredEvent
+    public class OrderRegisteredEvent : IOrderRegistered
     {
         public int OrderId { get; set; }
 

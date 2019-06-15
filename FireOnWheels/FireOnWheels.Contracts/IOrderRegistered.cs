@@ -1,6 +1,6 @@
 ﻿namespace FireOnWheels.Messaging
 {
-    public interface IOrderRegisteredEvent
+    public interface IOrderRegistered
     {
         int OrderId { get; }
         string PickupName { get; }
