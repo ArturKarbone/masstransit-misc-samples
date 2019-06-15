@@ -1,1 +1,1 @@
-[Sequence Diagram](./docs/sequence.png)
+![Sequence Diagram](./docs/sequence.png)
