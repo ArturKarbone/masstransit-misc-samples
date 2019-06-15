@@ -1,0 +1,12 @@
+@startuml
+actor User #red
+' The only difference between actor
+'and participant is the drawing
+participant "Registration Web" as RegistrationWeb
+participant "Registration Service" as RegistrationService #99FF99
+participant "Notification Service" as NotificationService
+
+User-> RegistrationWeb: enters an order
+RegistrationWeb -> RegistrationService: RegisterOrder command
+RegistrationService -> NotificationService: OrderRegistered event
+@enduml
