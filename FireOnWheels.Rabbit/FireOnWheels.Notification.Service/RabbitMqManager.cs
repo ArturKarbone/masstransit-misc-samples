@@ -24,7 +24,7 @@ namespace FireOnWheels.Notification
         {
             #region queue and qos setup
             channel.QueueDeclare(
-                queue: RabbitMqConstants.OrderRegisteredNotificationQueue, 
+                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"), 
                 durable: false, exclusive: false,
                 autoDelete: false, arguments: null);
 
@@ -47,7 +47,7 @@ namespace FireOnWheels.Notification
                     multiple: false);
             };
             channel.BasicConsume(
-                queue: RabbitMqConstants.OrderRegisteredNotificationQueue,
+                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"),
                 noAck: false,
                 consumer: eventingConsumer);
         }

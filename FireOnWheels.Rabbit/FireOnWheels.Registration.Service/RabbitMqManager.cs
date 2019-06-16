@@ -24,7 +24,7 @@ namespace FireOnWheels.Registration
         public void ListenForRegisterOrderCommand()
         {
             channel.QueueDeclare(
-                queue: RabbitMqConstants.RegisterOrderQueue,
+                queue: RabbitMqConstants.GetRegisterOrderQueue("Registration"),
                 durable: false, exclusive: false,
                 autoDelete: false, arguments: null);
 
@@ -33,7 +33,7 @@ namespace FireOnWheels.Registration
 
             var consumer = new RegisteredOrderCommandConsumer(this);
             channel.BasicConsume(
-                queue: RabbitMqConstants.RegisterOrderQueue,
+                queue: RabbitMqConstants.GetRegisterOrderQueue("Registration"),
                 noAck: false,
                 consumer: consumer);
         }
@@ -41,15 +41,15 @@ namespace FireOnWheels.Registration
         public void SendOrderRegisteredEvent(IOrderRegistered command)
         {
             channel.ExchangeDeclare(
-                exchange: RabbitMqConstants.OrderRegisteredExchange,
+                exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
                 type: ExchangeType.Fanout);
             channel.QueueDeclare(
-                queue: RabbitMqConstants.OrderRegisteredNotificationQueue,
+                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"),
                 durable: false, exclusive: false,
                 autoDelete: false, arguments: null);
             channel.QueueBind(
-                queue: RabbitMqConstants.OrderRegisteredNotificationQueue,
-                exchange: RabbitMqConstants.OrderRegisteredExchange,
+                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"),
+                exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
                 routingKey: "");
 
             var serializedCommand = JsonConvert.SerializeObject(command);
@@ -58,7 +58,7 @@ namespace FireOnWheels.Registration
             messageProperties.ContentType = RabbitMqConstants.JsonMimeType;
 
             channel.BasicPublish(
-                exchange: RabbitMqConstants.OrderRegisteredExchange,
+                exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
                 routingKey: "",
                 basicProperties: messageProperties,
                 body: Encoding.UTF8.GetBytes(serializedCommand));

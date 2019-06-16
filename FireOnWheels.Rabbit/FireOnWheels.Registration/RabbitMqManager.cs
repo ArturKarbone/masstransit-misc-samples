@@ -20,14 +20,14 @@ namespace FireOnWheels.Registration
         public void SendRegisterOrderCommand(IRegisterOrder command)
         {
             channel.ExchangeDeclare(
-                exchange: RabbitMqConstants.RegisterOrderExchange,
+                exchange: RabbitMqConstants.GetRegisterOrderExchange(),
                 type: ExchangeType.Direct);
             channel.QueueDeclare(
-                queue: RabbitMqConstants.RegisterOrderQueue, durable: false,
+                queue: RabbitMqConstants.GetRegisterOrderQueue("Registration"), durable: false,
                 exclusive: false, autoDelete: false, arguments: null);
             channel.QueueBind(
-                queue: RabbitMqConstants.RegisterOrderQueue,
-                exchange: RabbitMqConstants.RegisterOrderExchange,
+                queue: RabbitMqConstants.GetRegisterOrderQueue("Registration"),
+                exchange: RabbitMqConstants.GetRegisterOrderExchange(),
                 routingKey: "");
 
             var serializedCommand = JsonConvert.SerializeObject(command);
@@ -37,7 +37,7 @@ namespace FireOnWheels.Registration
                 RabbitMqConstants.JsonMimeType;
 
             channel.BasicPublish(
-                exchange: RabbitMqConstants.RegisterOrderExchange,
+                exchange: RabbitMqConstants.GetRegisterOrderExchange(),
                 routingKey: "",
                 basicProperties: messageProperties,
                 body: Encoding.UTF8.GetBytes(serializedCommand));

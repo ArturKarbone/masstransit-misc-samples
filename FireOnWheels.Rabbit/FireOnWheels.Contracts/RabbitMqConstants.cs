@@ -1,4 +1,6 @@
-﻿namespace FireOnWheels.Messaging
+﻿using System;
+
+namespace FireOnWheels.Messaging
 {
     public static class RabbitMqConstants
     {
@@ -7,14 +9,13 @@
         public const string JsonMimeType =
             "application/json";
 
-        public const string RegisterOrderExchange =
-            "fireonwheels.registerorder.exchange";
-        public const string RegisterOrderQueue =
-            "fireonwheels.registerorder.queue";
+        public static string GetRegisterOrderExchange() => GetExchangeName(typeof(IRegisterOrder));
+        public static string GetRegisterOrderQueue(string service) => GetQueueName(typeof(IRegisterOrder), service);
 
-        public const string OrderRegisteredExchange =
-            "fireonwheels.orderregistered.exchange";
-        public const string OrderRegisteredNotificationQueue =
-            "fireonwheels.orderregistered.notification.queue";
+        public static string GetOrderRegisteredExchange() => GetExchangeName(typeof(IOrderRegistered));
+        public static string GetOrderRegisteredQueue(string service) => GetQueueName(typeof(IOrderRegistered), service);
+
+        private static string GetExchangeName(Type type) => type.FullName;
+        private static string GetQueueName(Type type, string service) => $"{type.FullName}_{service}";
     }
 }
