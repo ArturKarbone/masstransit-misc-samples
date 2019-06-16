@@ -43,14 +43,6 @@ namespace FireOnWheels.Registration
             channel.ExchangeDeclare(
                 exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
                 type: ExchangeType.Fanout);
-            channel.QueueDeclare(
-                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"),
-                durable: false, exclusive: false,
-                autoDelete: false, arguments: null);
-            channel.QueueBind(
-                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"),
-                exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
-                routingKey: "");
 
             var serializedCommand = JsonConvert.SerializeObject(command);
 

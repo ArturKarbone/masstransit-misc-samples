@@ -23,10 +23,20 @@ namespace FireOnWheels.Notification
         public void ListenForOrderRegisteredEvent()
         {
             #region queue and qos setup
+
+            channel.ExchangeDeclare(
+                exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
+                type: ExchangeType.Fanout);
+
             channel.QueueDeclare(
                 queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"), 
                 durable: false, exclusive: false,
                 autoDelete: false, arguments: null);
+
+            channel.QueueBind(
+                queue: RabbitMqConstants.GetOrderRegisteredQueue("Notification"),
+                exchange: RabbitMqConstants.GetOrderRegisteredExchange(),
+                routingKey: "");
 
             channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 #endregion

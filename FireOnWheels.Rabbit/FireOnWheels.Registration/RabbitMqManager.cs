@@ -22,13 +22,6 @@ namespace FireOnWheels.Registration
             channel.ExchangeDeclare(
                 exchange: RabbitMqConstants.GetRegisterOrderExchange(),
                 type: ExchangeType.Direct);
-            channel.QueueDeclare(
-                queue: RabbitMqConstants.GetRegisterOrderQueue("Registration"), durable: false,
-                exclusive: false, autoDelete: false, arguments: null);
-            channel.QueueBind(
-                queue: RabbitMqConstants.GetRegisterOrderQueue("Registration"),
-                exchange: RabbitMqConstants.GetRegisterOrderExchange(),
-                routingKey: "");
 
             var serializedCommand = JsonConvert.SerializeObject(command);
 
@@ -37,8 +30,8 @@ namespace FireOnWheels.Registration
                 RabbitMqConstants.JsonMimeType;
 
             channel.BasicPublish(
-                exchange: RabbitMqConstants.GetRegisterOrderExchange(),
-                routingKey: "",
+                exchange: "",
+                routingKey: RabbitMqConstants.GetRegisterOrderQueue("Registration"),
                 basicProperties: messageProperties,
                 body: Encoding.UTF8.GetBytes(serializedCommand));
         }
