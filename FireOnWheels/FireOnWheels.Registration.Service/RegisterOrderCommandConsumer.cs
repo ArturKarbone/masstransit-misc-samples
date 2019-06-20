@@ -12,15 +12,11 @@ namespace FireOnWheels.Registration.Service
         {
             var command = context.Message;
 
-            //Store order registration and get Id
             var id = 12;
 
             await Console.Out.WriteLineAsync($"Order with id {id} registered");
 
-            //notify subscribers that a order is registered
-            var orderRegisteredEvent = new OrderRegisteredEvent(command, id);
-            //publish event
-            await context.Publish<IOrderRegistered>(orderRegisteredEvent);
+            await context.Publish<IOrderRegistered>(new OrderRegisteredEvent(command, id));
         }
     }
 }
