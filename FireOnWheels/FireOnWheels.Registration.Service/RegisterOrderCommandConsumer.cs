@@ -6,13 +6,13 @@ using MassTransit;
 
 namespace FireOnWheels.Registration.Service
 {
-    public class RegisterOrderCommandConsumer: IConsumer<IRegisterOrder>
+    public class RegisterOrderCommandConsumer : IConsumer<IRegisterOrder>
     {
         public async Task Consume(ConsumeContext<IRegisterOrder> context)
         {
             var command = context.Message;
 
-            var id = 12;
+            var id = Guid.NewGuid();
 
             await Console.Out.WriteLineAsync($"Order with id {id} registered");
 

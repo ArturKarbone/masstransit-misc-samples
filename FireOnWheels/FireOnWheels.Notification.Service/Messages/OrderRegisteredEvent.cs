@@ -1,10 +1,11 @@
-﻿using FireOnWheels.Messaging;
+﻿using System;
+using FireOnWheels.Messaging;
 
 namespace FireOnWheels.Notification.Service.Messages
 {
     public class OrderRegisteredEvent : IOrderRegistered
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
 
         public string PickupName { get; set; }
         public string PickupAddress { get; set; }

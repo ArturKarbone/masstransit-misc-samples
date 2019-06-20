@@ -1,17 +1,19 @@
-﻿using FireOnWheels.Messaging;
+﻿using System;
+using System.Runtime.InteropServices;
+using FireOnWheels.Messaging;
 
 namespace FireOnWheels.Registration.Service.Messages
 {
-    public class OrderRegisteredEvent: IOrderRegistered
+    public class OrderRegisteredEvent : IOrderRegistered
     {
         private IRegisterOrder command;
-        private int orderId;
-        public OrderRegisteredEvent(IRegisterOrder command, int orderId)
+        private Guid orderId;
+        public OrderRegisteredEvent(IRegisterOrder command, Guid orderId)
         {
             this.command = command;
             this.orderId = orderId;
         }
-        public int OrderId => orderId;
+        public Guid OrderId => orderId;
         public string PickupName => command.PickupName;
         public string PickupAddress => command.PickupAddress;
         public string PickupCity => command.PickupCity;

@@ -1,8 +1,10 @@
-﻿namespace FireOnWheels.Messaging
+﻿using System;
+
+namespace FireOnWheels.Messaging
 {
     public interface IOrderRegistered
     {
-        int OrderId { get; }
+        Guid OrderId { get; }
         string PickupName { get; }
         string PickupAddress { get; }
         string PickupCity { get; }
