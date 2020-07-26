@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Registration", "FireOnWheels.Registration\FireOnWheels.Registration.csproj", "{146FE67D-AB7E-46DC-9162-057C763676D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireOnWheels.Notification.Service", "FireOnWheels.Notification.Service\FireOnWheels.Notification.Service.csproj", "{E6869322-CC31-4238-AC2A-6CD5EE970DA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Notification.Service", "FireOnWheels.Notification.Service\FireOnWheels.Notification.Service.csproj", "{E6869322-CC31-4238-AC2A-6CD5EE970DA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireOnWheels.Registration.Service", "FireOnWheels.Registration.Service\FireOnWheels.Registration.Service.csproj", "{160428E9-22A4-4B07-9E24-AEDC180DFBA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Registration.Service", "FireOnWheels.Registration.Service\FireOnWheels.Registration.Service.csproj", "{160428E9-22A4-4B07-9E24-AEDC180DFBA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireOnWheels.Finance.Service", "FireOnWheels.Finance.Service\FireOnWheels.Finance.Service.csproj", "{B50CCD23-AA2B-46A0-9B66-A0CC15D50577}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Finance.Service", "FireOnWheels.Finance.Service\FireOnWheels.Finance.Service.csproj", "{B50CCD23-AA2B-46A0-9B66-A0CC15D50577}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Contracts", "FireOnWheels.Contracts\FireOnWheels.Contracts.csproj", "{A9A72F5B-6BC3-460A-968D-0E9B1C13F491}"
 EndProject

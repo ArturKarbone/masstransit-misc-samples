@@ -38,6 +38,7 @@ namespace FireOnWheels.Registration
             //        options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
             services.AddMvc();
+            services.AddControllersWithViews();
 
             // Add application services.
             //services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -47,8 +48,8 @@ namespace FireOnWheels.Registration
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
             {
@@ -66,8 +67,8 @@ namespace FireOnWheels.Registration
                     using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                         .CreateScope())
                     {
-      //                  serviceScope.ServiceProvider.GetService<ApplicationDbContext>()
-      //                       .Database.Migrate();
+                        //                  serviceScope.ServiceProvider.GetService<ApplicationDbContext>()
+                        //                       .Database.Migrate();
                     }
                 }
                 catch { }
@@ -76,15 +77,25 @@ namespace FireOnWheels.Registration
             //app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
 
             app.UseStaticFiles();
+            app.UseRouting();
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=RegisterOrder}/{id?}");
+            });
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=RegisterOrder}/{id?}");
-            });
+            //app.UseMvcWithDefaultRoute();
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=RegisterOrder}/{id?}");
+            //});
         }
 
         // Entry point for the application.
