@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using FireOnWheels.Messaging;
 using FireOnWheels.Registration.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using MassTransit;
 
 namespace FireOnWheels.Registration.Controllers
 {

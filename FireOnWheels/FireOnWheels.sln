@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Finance.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireOnWheels.Contracts", "FireOnWheels.Contracts\FireOnWheels.Contracts.csproj", "{A9A72F5B-6BC3-460A-968D-0E9B1C13F491}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7E7DD084-256D-4FD2-AE36-07C23F13AC11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A9A72F5B-6BC3-460A-968D-0E9B1C13F491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9A72F5B-6BC3-460A-968D-0E9B1C13F491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9A72F5B-6BC3-460A-968D-0E9B1C13F491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7DD084-256D-4FD2-AE36-07C23F13AC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7DD084-256D-4FD2-AE36-07C23F13AC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7DD084-256D-4FD2-AE36-07C23F13AC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7DD084-256D-4FD2-AE36-07C23F13AC11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

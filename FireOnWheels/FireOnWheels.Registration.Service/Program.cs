@@ -1,4 +1,5 @@
 ﻿using System;
+using FireOnWheels.Contracts;
 using FireOnWheels.Messaging;
 using MassTransit;
 
@@ -19,7 +20,7 @@ namespace FireOnWheels.Registration.Service
                 });
             });
 
-            bus.Start();
+            bus.StartSafely();
 
             Console.WriteLine("Listening for Register order commands.. " +
                               "Press enter to exit");

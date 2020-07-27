@@ -1,4 +1,5 @@
 ﻿using System;
+using FireOnWheels.Contracts;
 using FireOnWheels.Messaging;
 using MassTransit;
 
@@ -17,13 +18,12 @@ namespace FireOnWheels.Finance.Service
                     e.Consumer<OrderRegisteredConsumer>();
                 });
             });
-
-            bus.Start();
+            
+            bus.StartSafely();
 
             Console.WriteLine("Listening for Order registered events.. Press enter to exit");
             Console.ReadLine();
 
-            bus.Stop();
-        }
+            bus.Stop();        }
     }
 }

@@ -1,0 +1,47 @@
+version: '3.4'
+
+services:
+  
+  rabbit:
+        image: rabbitmq:3-management
+        container_name: rabbitmq      
+        ports:
+            - 5672:5672
+            - 15672:15672
+
+  fireonwheels.registration:
+    image: ${DOCKER_REGISTRY-}fireonwheelsregistration
+    ports:
+      - 5050:80   
+    build:
+      context: .
+      dockerfile: FireOnWheels.Registration/Dockerfile
+    depends_on:
+       - rabbit
+
+  fireonwheels.finance.service:
+    image: ${DOCKER_REGISTRY-}fireonwheelsfinanceservice   
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: FireOnWheels.Finance.Service/Dockerfile
+    depends_on:
+       - rabbit
+
+  fireonwheels.notification.service:
+    stdin_open: true
+    image: ${DOCKER_REGISTRY-}fireonwheelsnotificationservice    
+    build:
+      context: .
+      dockerfile: FireOnWheels.Notification.Service/Dockerfile
+    depends_on:
+       - rabbit
+
+  fireonwheels.registration.service:
+    image: ${DOCKER_REGISTRY-}fireonwheelsregistrationservice  
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: FireOnWheels.Registration.Service/Dockerfile
+    depends_on:
+       - rabbit
